@@ -3,8 +3,10 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
+const { MongoClient } = require('mongodb');
+const client = new MongoClient(process.env.DB_URI);
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // Basic Configuration
